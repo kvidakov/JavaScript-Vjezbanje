@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Inventory Project</title>
+    <link rel="icon" type="image/jpg" href="http://www.iconshock.com/img_jpg/XMac/accounting/jpg/256/inventory_icon.jpg">
+    <link rel="stylesheet" type="text/css" href="Stil.css">
+    <script type="text/javascript" src="myScript.js"></script>
+</head>
+<body>
+    <div id="divZaTraku">
+        <div id="GumbZaUnos" class="gumbiHover" onclick="SakrijOtkrij(GumbZaUnos)">DODAJ NOVI PROIZVOD</div>
+        <div id="GumbZaPrikaz" class="gumbiHover" onclick="SakrijOtkrij(GumbZaPrikaz)">IZRACUNAJ SUMU</div>
+    </div>
+    <div id="divZaUpisProizvoda">
+        <br/>
+        <form action="">
+            <p>Unesite ID proizvoda: &emsp;&emsp;<input type="text" id="idProizvoda" class="Provjeri" placeholder="Upisite ID proizvoda (4 znamenke)" size="25" onblur="ProvjeriBrojZnakova(idProizvoda)"></p>
+            <p>Unesite cijenu proizvoda: <input type="text" id="Cijena" placeholder="Upisite cijenu proizvoda"> Kn </p>
+            <p>Unesite kolicinu proizvoda: <input type="text" id="Kolicina" placeholder="Upisite kolicinu proizvoda"> Kom </p>
+            <input type="button" value="Dodaj" onclick="Proizvod(idProizvoda.value, Cijena.value, Kolicina.value)">
+        </form>
+        <br/>
+    </div>
+
+    <div id="divZaIspisProizvoda">
+        <br/><br/>
+        Unesite ID proizvoda za koji zelite izracunati iznos:
+        <br/><br/>
+        <form action="">
+            <input type="text" id="Unos" class="Provjeri" placeholder="4 znamenke" onblur="ProvjeriBrojZnakova(Unos)">
+            <input type="button" value="Izracunaj" onclick="Skladiste(Unos.value)">
+            <p>Cijena: &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Kolicina: &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Ukupno: </p>
+            <input type="text" id="IspisCijena" disabled>
+            <input type="text" id="IspisKolicina" disabled>
+            <input type="text" id="IspisSuma" disabled>
+        </form>
+        <br/>
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find PI to the Nth Digit</title>
+</head>
+<body>
+<form>
+    <input type="text" id="unos" maxlength="2" oninput="NajvecaDecimala()">
+</form>
+<br/>
+<p id="ispis">
+
+</p>
+
+<script type="text/javascript">
+    var decimala = document.getElementById("unos");
+    var pi = "14159265359";
+    decimala.addEventListener("change", GenerirajPi, false);
+
+    function NajvecaDecimala()
+    {
+        if (decimala.value > 11)
+            window.alert("Unjeli ste broj veći od broja decimala konstante PI \nNajveći broj koji možete unjeti je 11! \nPokušajte ponovo!");
+    }
+    
+    function GenerirajPi()
+    {
+        var ispis = "3.";
+        for (var i = 0; i < decimala.value; i++)
+        {
+            ispis += pi[i];
+            console.log(ispis);
+        }
+        document.getElementById("ispis").innerHTML = ispis;
+    }
+
+</script>
+
+</body>
+</html>

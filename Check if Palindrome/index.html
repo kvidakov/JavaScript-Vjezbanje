@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check if Palindrome</title>
+</head>
+<body>
+<form>
+    <input type="text" id="unos" oninput="ProvjeriPalindrom()">
+</form>
+
+<br />
+
+<p id="ispis">
+
+</p>
+
+<script>
+    function ProvjeriPalindrom()
+    {
+        var recenica = document.getElementById("unos").value;
+        var obrnuta = "";
+        for (var i = recenica.length - 1; i>= 0; i--)
+            obrnuta += recenica[i];
+        if (obrnuta == recenica)
+                document.getElementById("ispis").innerHTML = "Recenica '" + recenica + "' je palindrom!";
+        else
+                document.getElementById("ispis").innerHTML = "Unesena recenica nije palindrom!";
+    }
+
+</script>
+
+</body>
+</html>

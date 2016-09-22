@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prime Factorization</title>
+</head>
+<body>
+<form>
+    <input type="text" id="unos" autofocus placeholder="Unesite neki broj" oninput="Mnozitelji()">
+</form>
+<br/>
+
+<p id="ispis">
+
+</p>
+
+<script type="text/javascript">
+
+    function Mnozitelji()
+    {
+        document.getElementById("ispis").innerHTML = " ";
+        var broj = document.getElementById("unos").value;
+        for (var i = 1; i <= broj; i++)
+        {
+            if (broj % i == 0)
+                document.getElementById("ispis").innerHTML += i + ", ";
+        }
+    }
+</script>
+</body>
+</html>

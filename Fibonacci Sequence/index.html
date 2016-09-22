@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fibonacci Sequence</title>
+</head>
+<body>
+<form>
+    <input type="text" id="unos" autofocus placeholder="Unesite pozitivni cijeli broj" oninput="GenerirajFibonacija()">
+</form>
+<br/>
+
+<p id="ispis">
+
+</p>
+
+<script type="text/javascript">
+
+    function GenerirajFibonacija()
+    {
+        var i, fib = [];
+        var n = document.getElementById("unos").value, ispis = 0;
+        fib[0] = 0;
+        fib[1] = 1;
+        for (i = 2; i <= n; i++)
+        {
+            fib[i] = fib[i-2] + fib[i-1];
+
+        }
+        ispis = fib[n];
+        document.getElementById("ispis").innerHTML = ispis.toString();
+    }
+
+</script>
+
+</body>
+</html>

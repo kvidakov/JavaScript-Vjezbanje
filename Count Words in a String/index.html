@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <title>Count Words in a String </title>
+</head>
+<body>
+<form>
+    <input type="file" id="unos">
+</form>
+<br/><br/>
+<p id="ispis1">
+    
+</p>
+<br/>
+<p id="ispis2">
+
+</p>
+
+<script>
+    document.getElementById("unos").addEventListener("change", UcitajDatoteku, false);
+    function UcitajDatoteku(e)
+    {
+        var datoteka = e.target.files[0];
+        if(!datoteka)
+                return;
+        var reader = new FileReader();
+        reader.onload = function (e)
+        {
+            var sadrzaj = e.target.result;
+            PrikaziSadrzaj(sadrzaj);
+            IzracunajBrojRijeci(sadrzaj);
+        }
+        reader.readAsText(datoteka);
+
+    }
+    function IzracunajBrojRijeci(sadrzaj)
+    {
+        var brojac = 0;
+        for (var i = 0; i < sadrzaj.length; i++)
+        {
+            if (sadrzaj[0] == " ")
+                    break;
+            else
+                    if (brojac == 0)
+                        brojac++;
+            if (sadrzaj[i] == " ")
+                brojac++;
+        }
+        PrikaziBrojRijeci(brojac);
+    }
+
+    function PrikaziSadrzaj(sadrzaj)
+    {
+        var element = document.getElementById("ispis1");
+        element.innerHTML = sadrzaj;
+    }
+    function PrikaziBrojRijeci(brojac)
+    {
+        var BrojRijeci = document.getElementById("ispis2");
+        BrojRijeci.innerHTML = "Broj rijeci u recenici je: " + brojac;
+    }
+
+</script>
+
+</body>
+</html>

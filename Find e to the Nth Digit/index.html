@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find e to the Nth Digit</title>
+</head>
+<body>
+<form>
+    <input type="text" id="unos" oninput="ProvjeriDecimalu()">
+</form>
+<br/>
+<p id="ispis">
+
+</p>
+
+<script type="text/javascript">
+    var decimala = document.getElementById("unos");
+    var e = "7182818284590452353602875";
+    decimala.addEventListener("change", GenerirajE, false);
+
+    function ProvjeriDecimalu()
+    {
+        if (decimala.value > 25)
+                window.alert("Unjeli ste preveliki broj decimalnih mjesta! \nBroj e ima samo 25 decimala! \n Pokušajte ponovo!");
+    }
+
+    function GenerirajE()
+    {
+        var ispis = "2.";
+        for (var i = 0; i < decimala.value; i++)
+            ispis += e[i];
+        document.getElementById("ispis").innerHTML = ispis;
+    }
+
+
+</script>
+
+</body>
+</html>

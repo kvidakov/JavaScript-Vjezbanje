@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Editor</title>
+</head>
+<body>
+<form>
+    <input type="file" id="datoteka">
+    <textarea style="width: 100%" id="PodrucjeZaText">
+
+    </textarea>
+</form>
+
+<script type="text/javascript">
+    document.getElementById("datoteka").addEventListener("change", UcitajDatoteku, false);
+    document.getElementById("PodrucjeZaText").addEventListener("change", PisiUDatoteku, false);
+
+    function UcitajDatoteku(e)
+    {
+        var datoteka = e.target.files[0];
+        if (!datoteka)
+                return;
+        var reader = new FileReader;
+        reader.onload = function (e)
+        {
+            var sadrzaj = e.target.result;
+            PrikaziSadrzaj(sadrzaj);
+
+        }
+        reader.readAsText(datoteka);
+    }
+    
+    function PrikaziSadrzaj(sadrzaj)
+    {
+        var sadrzajZaPrikazat = document.getElementById("PodrucjeZaText");
+        sadrzajZaPrikazat.innerHTML = sadrzaj;
+    }
+
+    function PisiUDatoteku()
+    {
+        parser = new DOMParser();
+        xmlDoc = parser.parseFromString(ActiveXObject,"text/xml");
+        var fso = new ActiveXObject("Scripting.FileSystemObject");
+        var fh = fso.OpenTextFile("C:\Users\KARLO\Desktop", 8, false, 0);
+        fh.writeln(document.getElementById("PodrucjeZaText").value);
+        fh.close();
+
+    }
+
+
+</script>
+</body>
+</html>

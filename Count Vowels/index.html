@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Count Vowels</title>
+</head>
+<body>
+<form>
+    <input type="text" id="unos" oninput="BrojiSamoglasnike()">
+</form>
+
+<br />
+
+<p id="ispis">
+
+</p>
+
+<script>
+    function BrojiSamoglasnike()
+    {
+        var recenica = document.getElementById("unos").value;
+        var brojiA = 0, brojiE = 0, brojiI = 0, brojiO = 0, brojiU = 0;
+        var ispisi;
+        for (var i = 0; i < recenica.length; i++)
+        {
+            switch (recenica[i])
+            {
+                case 'a':
+                    brojiA++;
+                    break;
+                case 'e':
+                    brojiE++;
+                    break;
+                case 'i':
+                    brojiI++;
+                    break;
+                case 'o':
+                    brojiO++;
+                    break;
+                case 'u':
+                    brojiU++;
+                    break;
+            }
+        }
+        ispisi = "Ukupni broj samoglasnika: <br /> a: " + brojiA + " <br /> e: " + brojiE + "<br /> i: " + brojiI + "<br /> o: " + brojiO + "<br /> u: " + brojiU;
+        document.getElementById("ispis").innerHTML = ispisi;
+    }
+
+
+</script>
+
+</body>
+</html>

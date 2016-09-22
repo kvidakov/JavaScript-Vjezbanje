@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>Next Prime Number</title>
+</head>
+<body>
+<form>
+    <input type="text" id="unos" autofocus placeholder="Unesite neki broj" oninput="Mnozitelji()">
+    <br/><br/>
+    <input type="button" value="Daj mi množitelja!!!" id="gumb">
+
+</form>
+<br/>
+
+<p id="ispis">
+
+</p>
+
+<script type="text/javascript">
+    var broj = document.getElementById("unos").value;
+    var n = 0;
+    var gumb = document.getElementById("gumb");
+    var polje = [];
+
+    gumb.addEventListener("click", Prikazi);
+    function Mnozitelji()
+    {
+        var j = 0;
+        for (var i = 1; i <= broj; i++)
+        {
+            if (broj % i == 0)
+            {
+                polje[j] = i;
+                j++;
+            }
+        }
+    }
+
+    function Prikazi()
+    {
+        document.getElementById("ispis").innerHTML = polje[n];
+        n++;
+    }
+
+
+</script>
+</body>
+</html>

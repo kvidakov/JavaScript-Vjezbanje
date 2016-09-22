@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reverse a String</title>
+</head>
+<body >
+<form >
+    <label>
+        <input type="text" id="recenica" oninput="ReverseString()">
+    </label>
+    <br>
+    <p id="ispis"></p>
+</form>
+
+
+<script>
+    function ReverseString()
+    {
+        var rec = document.getElementById("recenica").value;
+        var ispisi = "";
+        var j = 0;
+        for (var i = rec.length - 1; i >= 0; i--)
+        {
+            ispisi += rec[i];
+            j++;
+        }
+        document.getElementById("ispis").innerHTML = ispisi;
+    }
+</script>
+</body>
+</html>
