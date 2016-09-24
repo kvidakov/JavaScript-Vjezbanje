@@ -12,6 +12,8 @@ var ProvjeriBrojZnakova = function (Vrijednost)
     }
 };
 
+
+
 var brojac = 0;
 var NoviProizvod = [];
 
@@ -19,12 +21,21 @@ var Proizvod = function (idProizvoda, Cijena, Kolicina)
 {
     function DodajProizvod(idProizvoda,Cijena,Kolicina)
     {
-        this.ID = idProizvoda;
-        this.cijena = Cijena;
-        this.kolicina = Kolicina;
+        if (idProizvoda !== "" && Cijena !== "" && Kolicina !== "")
+        {
+            this.ID = idProizvoda;
+            this.cijena = Cijena;
+            this.kolicina = Kolicina;
+            alert("Proizvod uspjesno dodan");
+            Kvadratici(idProizvoda, Kolicina);
+        }
+        else
+        {
+            alert("Niste unjeli sve potrebne parametre!");
+        }
     }
     NoviProizvod[brojac] = new DodajProizvod(idProizvoda, Cijena, Kolicina);
-    alert("Proizvod uspjesno dodan");
+
     brojac++;
     document.getElementById("idProizvoda").value = "";
     document.getElementById("Cijena").value = "";
@@ -71,6 +82,29 @@ var SakrijOtkrij = function (SakrijGa)
     };
     SakrijIzracun(SakrijGa);
 };
+
+var Kvadratici = function (idProizvoda, Kolicina)
+{
+    alert("Tu sam");
+    var Kontenjer, Div, P1, P2, P3, P4, Tekst1, Tekst2, Tekst3, Tekst4;
+    Kontenjer = document.getElementById("container");
+    Div = document.createElement("div");
+    P1 = document.createElement("p");
+    P2 = document.createElement("p");
+    P3 = document.createElement("p");
+    P4 = document.createElement("p");
+    Tekst1 = document.createTextNode("ID proizvoda je: ");
+    Tekst2 = document.createTextNode(idProizvoda);
+    Tekst3 = document.createTextNode("Kolicina proizvoda je: ");
+    Tekst4 = document.createTextNode(Kolicina);
+    P1.appendChild(Tekst1);
+    P2.appendChild(Tekst2);
+    P3.appendChild(Tekst3);
+    P4.appendChild(Tekst4);
+    Div.className += "Divovi";
+    Div.appendChild(P1).appendChild(P2).appendChild(P3).appendChild(P4);
+    Kontenjer.appendChild(Div);
+}
 
 
 
