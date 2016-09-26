@@ -12,16 +12,26 @@ var ProvjeriBrojZnakova = function (Vrijednost)
     }
 };
 
-
-
 var brojac = 0;
 var NoviProizvod = [];
+var VecPostoji = false;
 
 var Proizvod = function (idProizvoda, Cijena, Kolicina)
 {
     function DodajProizvod(idProizvoda,Cijena,Kolicina)
     {
-        if (idProizvoda !== "" && Cijena !== "" && Kolicina !== "")
+        if (brojac > 0)
+        {
+            for (var i = 0; i < NoviProizvod.length;i++)
+            {
+                if (idProizvoda == NoviProizvod[i].ID)
+                {
+                    VecPostoji = true;
+                }
+            }
+        }
+
+        if (VecPostoji === false && idProizvoda !== "" && Cijena !== "" && Kolicina !== "")
         {
             this.ID = idProizvoda;
             this.cijena = Cijena;
@@ -31,7 +41,7 @@ var Proizvod = function (idProizvoda, Cijena, Kolicina)
         }
         else
         {
-            alert("Niste unjeli sve potrebne parametre!");
+            alert("Niste unjeli sve potrebne parametre ili ste unjeli ID koji se vec koristi!");
         }
     }
     NoviProizvod[brojac] = new DodajProizvod(idProizvoda, Cijena, Kolicina);
@@ -85,7 +95,6 @@ var SakrijOtkrij = function (SakrijGa)
 
 var Kvadratici = function (idProizvoda, Kolicina)
 {
-    alert("Tu sam");
     var Kontenjer, Div, P1, P2, P3, P4, Tekst1, Tekst2, Tekst3, Tekst4;
     Kontenjer = document.getElementById("container");
     Div = document.createElement("div");
@@ -93,9 +102,9 @@ var Kvadratici = function (idProizvoda, Kolicina)
     P2 = document.createElement("p");
     P3 = document.createElement("p");
     P4 = document.createElement("p");
-    Tekst1 = document.createTextNode("ID proizvoda je: ");
+    Tekst1 = document.createTextNode("ID PROIZVODA: ");
     Tekst2 = document.createTextNode(idProizvoda);
-    Tekst3 = document.createTextNode("Kolicina proizvoda je: ");
+    Tekst3 = document.createTextNode("KOLICINA PROIZVODA: ");
     Tekst4 = document.createTextNode(Kolicina);
     P1.appendChild(Tekst1);
     P2.appendChild(Tekst2);
@@ -104,7 +113,43 @@ var Kvadratici = function (idProizvoda, Kolicina)
     Div.className += "Divovi";
     Div.appendChild(P1).appendChild(P2).appendChild(P3).appendChild(P4);
     Kontenjer.appendChild(Div);
-}
+    Div.style.webkitAnimation = "fadeIn 2s";
+    var DragDrop = function ()
+    {
+        Kontenjer.onload = addListeners();
+        var offX;
+        var offY;
+
+        function addListeners(){
+            Div.addEventListener('mousedown', mouseDown, false);
+            Kontenjer.addEventListener('mouseup', mouseUp, false);
+
+        }
+
+        function mouseUp()
+        {
+            Kontenjer.removeEventListener('mousemove', divMove, true);
+        }
+
+        function mouseDown(e){
+
+            offY= e.clientY-parseInt(Div.offsetTop);
+            offX= e.clientX-parseInt(Div.offsetLeft);
+            Kontenjer.addEventListener('mousemove', divMove, true);
+        }
+
+        function divMove(e){
+
+            Div.style.position = 'absolute';
+            Div.style.top = (e.clientY-offY) + 'px';
+            Div.style.left = (e.clientX-offX) + 'px';
+        }
+    }
+    Div.addEventListener("mousedown", DragDrop);
+};
+
+
+
 
 
 
