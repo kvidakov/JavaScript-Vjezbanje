@@ -3,15 +3,27 @@
     <words>
       <w>brojac</w>
       <w>cijena</w>
+      <w>cijenu</w>
+      <w>divovi</w>
       <w>dodaj</w>
       <w>kolicina</w>
+      <w>kolicinu</w>
+      <w>kontenjer</w>
       <w>novi</w>
+      <w>novu</w>
+      <w>odaberite</w>
+      <w>prepravi</w>
       <w>proizvod</w>
       <w>proizvoda</w>
+      <w>promjenu</w>
+      <w>pronaden</w>
       <w>provjeri</w>
       <w>skladiste</w>
       <w>suma</w>
+      <w>tekst</w>
+      <w>unesite</w>
       <w>upis</w>
+      <w>vrijednost</w>
     </words>
   </dictionary>
 </component>

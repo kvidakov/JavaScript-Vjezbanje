@@ -10,8 +10,10 @@
 <body>
     <div id="divZaTraku">
         <div id="GumbZaUnos" class="gumbiHover" onclick="SakrijOtkrij(GumbZaUnos)">DODAJ NOVI PROIZVOD</div>
-        <div id="GumbZaPrikaz" class="gumbiHover" onclick="SakrijOtkrij(GumbZaPrikaz)">IZRACUNAJ SUMU</div>
+        <div id="GumbZaPrikaz" class="gumbiHover" onclick="SakrijOtkrij(GumbZaPrikaz)">IZRAČUNAJ SUMU</div>
+        <div id="GumbZaPromjenu" class="gumbiHover" onclick="SakrijOtkrij(GumbZaPromjenu)">AŽURIRAJ STANJE</div>
     </div>
+
     <div id="divZaUpisProizvoda" class="Prikazi">
         <br/>
         <form action="">
@@ -37,6 +39,28 @@
         </form>
         <br/>
     </div>
+
+    <div id="divZaPromjenuProizvoda" class="Prikazi">
+        <br/>
+        <form action="">
+            <p>Unesite ID proizvoda: &emsp;&emsp; <input type="text" id="idProvjeriProizvod" class="Provjeri" placeholder="Upisite ID proizvoda (4 znamenke)" size="25" onblur="ProvjeriBrojZnakova(idProvjeriProizvod)"></p>
+            Odaberite cijenu ili kolicinu:
+            <select id="CijenaIliKolicina" oninput="PostaviInputKNiliKom(CijenaIliKolicina.value)">
+                <option selected    >Default</option>
+                <option value="Cijena"  >Cijena</option>
+                <option value="Kolicina">Kolicina</option>
+            </select>
+            <select id="Operator">
+                <option value="Plus" label="+"></option>
+                <option value="Minus" label="-"></option>
+            </select>
+            <p>Unesite novu vrijednost: <input type="text" id="NovaVrijednost" placeholder="Unesite novu vrijednost">
+            <input type="text" id="KnIliKom" size="3" disabled></p>
+            <input type="button" value="Dodaj" onclick="Prepravi(idProvjeriProizvod.value, CijenaIliKolicina.value, Operator.value, NovaVrijednost.value)">
+        </form>
+        <br/>
+    </div>
+
     <br/>
     <br/>
     <div id="container">

@@ -27,6 +27,9 @@ var Proizvod = function (idProizvoda, Cijena, Kolicina)
                 if (idProizvoda == NoviProizvod[i].ID)
                 {
                     VecPostoji = true;
+                    NoviProizvod[i].kolicina = +Kolicina;
+                    NoviProizvod[i].cijena = +Cijena;
+                    Prepravi(idProizvoda,Kolicina);
                 }
             }
         }
@@ -38,6 +41,10 @@ var Proizvod = function (idProizvoda, Cijena, Kolicina)
             this.kolicina = Kolicina;
             alert("Proizvod uspjesno dodan");
             Kvadratici(idProizvoda, Kolicina);
+        }
+        else if (VecPostoji == true)
+        {
+
         }
         else
         {
@@ -77,17 +84,24 @@ var SakrijOtkrij = function (SakrijGa)
 {
     var SakrijIzracun = function (SakrijGa)
     {
-        var divZaUpisProizvoda = document.getElementById("divZaUpisProizvoda");
-        var divZaIspisProizvoda = document.getElementById("divZaIspisProizvoda");
+        var divZaUpisProizvoda, divZaIspisProizvoda, divZaPromjenuProizvoda;
+        divZaUpisProizvoda = document.getElementById("divZaUpisProizvoda");
+        divZaIspisProizvoda = document.getElementById("divZaIspisProizvoda");
+        divZaPromjenuProizvoda = document.getElementById("divZaPromjenuProizvoda");
         this.Gumb =  SakrijGa;
         switch (this.Gumb.id)
         {
             case "GumbZaUnos":  divZaIspisProizvoda.style.display = "none";
+                                divZaPromjenuProizvoda.style.display = "none";
                                 divZaUpisProizvoda.style.display = "block";
                                 break;
             case "GumbZaPrikaz": divZaUpisProizvoda.style.display = "none";
+                                divZaPromjenuProizvoda.style.display = "none";
                                 divZaIspisProizvoda.style.display = "block";
                                 break;
+            case "GumbZaPromjenu":  divZaUpisProizvoda.style.display = "none";
+                                    divZaIspisProizvoda.style.display = "none";
+                                    divZaPromjenuProizvoda.style.display = "block";
         }
     };
     SakrijIzracun(SakrijGa);
@@ -98,6 +112,7 @@ var Kvadratici = function (idProizvoda, Kolicina)
     var Kontenjer, Div, P1, P2, P3, P4, Tekst1, Tekst2, Tekst3, Tekst4;
     Kontenjer = document.getElementById("container");
     Div = document.createElement("div");
+    Div.id = idProizvoda;
     P1 = document.createElement("p");
     P2 = document.createElement("p");
     P3 = document.createElement("p");
@@ -110,9 +125,11 @@ var Kvadratici = function (idProizvoda, Kolicina)
     P2.appendChild(Tekst2);
     P3.appendChild(Tekst3);
     P4.appendChild(Tekst4);
+    P4.id = "kol" + idProizvoda;
     Div.className += "Divovi";
     Div.appendChild(P1).appendChild(P2).appendChild(P3).appendChild(P4);
     Kontenjer.appendChild(Div);
+    Div.id = idProizvoda;
     Div.style.webkitAnimation = "fadeIn 2s";
     var DragDrop = function ()
     {
@@ -149,6 +166,85 @@ var Kvadratici = function (idProizvoda, Kolicina)
 };
 
 
+var Prepravi = function (idProvjeriProizvod, CijenaIliKolicina, Operator, NovaVrijednost)
+{
+    var Kontenjer = document.getElementById("container"), broj;
+    function ProvjeriID(idProvjeriProizvod)
+    {
+        var pronaden = false;
+        for (var i = 0; i < NoviProizvod.length;i++)
+        {
+            if (idProvjeriProizvod === NoviProizvod[i].ID)
+            {
+                pronaden = true;
+                switch (CijenaIliKolicina)
+                {
+                    case "Cijena": switch (Operator)
+                    {
+                        case "Plus":    broj = NoviProizvod[i].cijena;
+                                        parseInt(broj);
+                                        broj = +broj + parseInt(NovaVrijednost);
+                                        NoviProizvod[i].cijena = +broj;
+                            break;
+                        case "Minus":   if (NovaVrijednost >= NoviProizvod[i].cijena)
+                                            NoviProizvod[i].cijena = 0;
+                                        else
+                                            broj = NoviProizvod[i].cijena;
+                                            parseInt(broj);
+                                            broj = +broj - parseInt(NovaVrijednost);
+                                            NoviProizvod[i].cijena = +broj;
+                                            break;
+                    }
+                    case "Kolicina": switch (Operator)
+                    {
+                        case "Plus":    broj = NoviProizvod[i].kolicina;
+                                        parseInt(broj);
+                                        broj = +broj + parseInt(NovaVrijednost);
+                                        NoviProizvod[i].kolicina = +broj;
+                                        break;
+                        case "Minus":   if (NovaVrijednost >= NoviProizvod[i].kolicina)
+                                            NoviProizvod[i].kolicina = 0;
+                                        else
+                                            broj = NoviProizvod[i].kolicina;
+                                            parseInt(broj);
+                                            broj = +broj - parseInt(NovaVrijednost);
+                                            NoviProizvod[i].kolicina = +broj;
+                                            break;
+                    }
+                }
+                for (var j = 1; j <= Kontenjer.childElementCount; j++)
+                {
+                    if (idProvjeriProizvod === Kontenjer.childNodes[j].id)
+                    {
+                        document.getElementById("kol" + idProvjeriProizvod).innerText = NoviProizvod[i].kolicina;
+                        Kontenjer.childNodes[j].kolicina = NoviProizvod[i].kolicina;
+                    }
+                }
+                alert("Uspjesno ste azurirali stanje!");
+            }
+        }
+        if (pronaden == false)
+        {
+            alert("Unjeli ste nepostojeci ID!");
+            return;
+        }
+    }
+    ProvjeriID(idProvjeriProizvod);
+};
+function PostaviInputKNiliKom(CijenaIliKolicina)
+{
+    var knilikom = document.getElementById("KnIliKom");
+    switch(CijenaIliKolicina)
+    {
+        case "Cijena": knilikom.value = "KN";
+            break;
+        case "Kolicina": knilikom.value = "Kom";
+            break;
+        default:
+            knilikom.value = "";
+            alert("Odaberite Cijenu ili Kolicinu");
+    }
+}
 
 
 
