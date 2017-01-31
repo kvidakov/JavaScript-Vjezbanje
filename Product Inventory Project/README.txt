@@ -10,7 +10,7 @@ By clicking the button "Dodaj" at the end of the input form you add new product 
 The new product shows up below the input form in the little squares.*
 
 Next thing you can do is to calculate the multiplication of quantity and the price of the exact
-product in the class, by clicking the middle tab in the navigation, called "IZRAÈUNAJ SUMU".
+product in the class, by clicking the middle tab in the navigation, called "IZRAÃˆUNAJ SUMU".
 
 New input form drops down. In the first field you input product ID and click button "Izracunaj".
 If you input nonexistent ID the alert message pops out, else it will print out the price,
@@ -24,5 +24,5 @@ Then you select to update quantity or price of the product, do you want to add o
 and the last you input the new value for which you wish to update the old value.
 And you click the "Dodaj" button at the end.
 
-*The special, secret functionality is the drag and drop of the product in the class. 
+*There is special, secret functionality, try to find it. (Little hint: it's somewhere around the products added in the class: p).
 Try it out ;)
