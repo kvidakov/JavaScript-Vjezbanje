@@ -1,0 +1,174 @@
+.jumbotron{
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+}
+
+.jumbotron .container{
+    padding: 0;
+}
+
+#blueTrack{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    font-size: 0.8vmax;
+    border-radius: 1px;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    background: #3164e2; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #3164e2 , #112351); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #3164e2, #112351); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #3164e2, #112351); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #3164e2 , #112351); /* Standard syntax */
+}
+
+#login{
+    color: #e26e7c;
+}
+
+.nav li a{
+    color: #fff;
+}
+
+.nav li a:hover{
+    color: #3164e2;
+}
+
+#titlePatientDoctorScheduler{
+    position: absolute;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 1.9vmax;
+    color: #e26e7c;
+    margin-left: 10%;
+
+}
+
+.titlePDS{
+    font-family: 'Kaushan Script', cursive;
+    font-size: 1.5vmax;
+    margin-right: 10px;
+    color: #e26e7c;
+    margin-left: 15%;
+}
+
+#contentDiv{
+    background-color: #e9e9e9;
+    float: none;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.firstContentTitle{
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+}
+
+.firstContentTitle > p{
+    font-weight: 400;
+    font-size: 2.35vmax;
+    margin: 4% auto 0 auto;
+    color: #3164e2;
+}
+
+#contentDiv .container{
+    display: inline;
+}
+
+.col-lg-8{
+
+    float: left;
+}
+
+.col-xs-8{
+    content: "";
+    width: 80%;
+    padding: 0;
+}
+
+.col-xs-6{
+    padding: 0;
+}
+
+
+div table{
+    color: #5f5f60;
+    text-align: center;
+}
+
+table tr{
+    margin: 0 1.5vmax;
+    padding: 0;
+    text-align: justify;
+}
+
+tbody tr{
+    padding: 0;
+}
+
+table img{
+    margin: 0;
+    padding: 0;
+    width: 73%;
+    border: 1px solid #e1e1e1;
+}
+
+table .contentText{
+    font-size: 1.5vmax;
+    font-family: 'Ubuntu', sans-serif;
+
+    text-align: justify;
+    display: inline;
+    padding: 0 5% 0 0;
+}
+
+#contentText{
+    font-size: 1.5vmax;
+    font-family: 'Ubuntu', sans-serif;
+    color: #9b9b9b;
+    text-align: center;
+}
+
+.contentText{
+    padding: 0;
+}
+
+.contentText #lowerText{
+    padding-right: 5%;
+}
+
+.register{
+    color: #e26e7c;
+}
+
+
+.container .col-lg-12{
+    display: inline;
+    float: left;
+}
+
+.emptyDivs{
+    padding: 0;
+}
+
+.pitcureRow{
+    margin-left: 5%;
+}
+
+.footerContent{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.footerContent img{
+    max-width: 2vmax;
+    margin: 0 2%;
+}
+
+.halfcell{
+    width: 45%;
+}
+
+.halfcell2{
+    width: 50%;
+    float: left;
+}
+

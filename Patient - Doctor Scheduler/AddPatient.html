@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700|Kaushan+Script|Lato:700|Ubuntu:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="MyStyle.css">
+    <title>Patient / Doctor Scheduler</title>
+    <style type="text/css">
+        table tr
+        {
+            float: none;
+            margin: 0 25%;
+        }
+        .col-xs-7{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <div class="container" id="containerInJumbotron ">
+                <p id="titlePatientDoctorScheduler">Patient - Doctor <br/> Scheduler</p>
+                <img src="Slike\doctorpaitnttalking2.jpg" class="img-responsive" alt="Responsive image">
+            </div>
+
+            <div class="container" id="blueTrack">
+                <ul class="nav nav-pills" id="navigacija">
+                    <li class="titlePDS">PDS</li>
+                    <li><a href="">ABOUT</a></li>
+                    <li><a href="">ADD PATIENT</a></li>
+                    <li><a href="">ADD DOCTOR</a></li>
+                    <li><a href="">CONTACT</a></li>
+                        <li><a href="" id="login">LOG IN</a></li>
+                </ul>
+            </div>
+
+            <div class="container firstContentTitle" id="contentDiv">
+                <div class="col-xs-12 firstContentTitle" style="padding-left: 6%;">
+                    <p>REGISTER AS A PATIENT</p>
+                </div>
+                <div class="container col-xs-12">
+                    <div class="col-xs-2 emptyDivs"></div>
+                    <div class="col-xs-8 emptyDivs">
+                        <table>
+                            <tr >
+                                <td colspan="2" class="col-xs-6" style="padding-right: 10%;">
+                                    <p class="contentText">
+                                        All You need to do is to fill out the form underneath to register yourself so You can be added to an patient database.
+                                        With registering You gain an access to schedule an appointment and to choose which doctor You prefer.
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="col-xs-6" style="padding-right: 10%;">
+                                    <p class="contentText" id="lowerText">
+                                        <span class="register">Please enter a correct personal data, otherwise You'll be deleted from the database.</span>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 firstContentTitle" style="padding-left: 6%;">
+                    <p style="font-size: 2vmax;">REGISTRATION FORM</p>
+                </div>
+
+                <div class="container col-xs-10">
+                    <div class="col-xs-2 emptyDivs"></div>
+                    <div class="col-xs-8 emptyDivs" style="text-align: center;">
+                        <table>
+                            <tr class="col-xs-10">
+                                <td class="col-xs-4 halfcell" align="left;">
+                                    <p class="contentText">
+                                        Name:
+                                    </p>
+                                </td>
+                                <td class="col-xs-6 halfcell2" align="right;" style="float: left;">
+                                    <form action="">
+                                        <input type="text" title="Input Your name" class="form-control">
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr class="col-xs-10">
+                                <td class="col-xs-5 halfcell" align="left;">
+                                    <p class="contentText">
+                                        Surname:
+                                    </p>
+                                </td>
+                                <td class="col-xs-7 halfcell2" align="right;" style="float: left;">
+                                    <input type="text" class="form-control">
+                                </td>
+                            </tr>
+                            <tr class="col-xs-10">
+                                <td class="col-xs-5 halfcell" align="left;">
+                                    <p class="contentText">
+                                        NIN:
+                                    </p>
+                                </td>
+                                <td class="col-xs-7 halfcell2" align="right;" style="float: left;">
+                                    <input type="text" class="form-control">
+                                </td>
+                            </tr>
+                            <tr class="col-xs-10">
+                                <td class="col-xs-5 halfcell" align="left;">
+                                    <p class="contentText">
+                                        MIN:
+                                    </p>
+                                </td>
+                                <td class="col-xs-7 halfcell2" align="right;" style="float: left;">
+                                    <input type="text" class="form-control">
+                                </td>
+                            </tr>
+                            <tr class="col-xs-10">
+                                <td class="col-xs-5 halfcell" align="left;">
+                                    <p class="contentText">
+                                        Date of birth:
+                                    </p>
+                                </td>
+                                <td class="col-xs-7 halfcell2" align="right;" style="float: left;">
+                                    <input type="text" class="form-control">
+                                </td>
+                            </tr>
+                            <tr class="col-xs-10">
+                                <td class="col-xs-5 halfcell" align="left;">
+                                    <p class="contentText">
+                                        Email:
+                                    </p>
+                                </td>
+                                <td class="col-xs-7 halfcell2" align="right;" style="float: left;">
+                                    <input type="text" class="form-control">
+                                </td>
+                            </tr>
+                            <tr class="col-xs-10">
+                                <td class="col-xs-5 halfcell" align="left;">
+                                    <p class="contentText">
+                                        Password:
+                                    </p>
+                                </td>
+                                <td class="col-xs-7 halfcell2" align="right;" style="float: left;">
+                                    <input type="text" class="form-control">
+                                </td>
+                            </tr>
+                            <tr class="col-xs-10">
+                                <td class="col-xs-5 halfcell" align="left;">
+                                    <p class="contentText">
+                                        Re-enter password:
+                                    </p>
+                                </td>
+                                <td class="col-xs-7 halfcell2" align="right;" style="float: left;">
+                                    <input type="text" class="form-control">
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+
+                <div class="container col-xs-12">
+                    <br><br><br><br>
+                </div>
+            </div>
+
+            <div class="container">
+                <br><br>
+                <div class="container col-xs-12 footerContent" style="float: none;">
+                    <img src="Slike\1477355678_Facebook.png" class="col-xs-8" style="float: none;">
+                    <img src="Slike\1477355695_Twitter.png" class="col-xs-8" style="float: none;">
+                    <img src="Slike\1477355702_LinkedIn.png" class="col-xs-8" style="float: none;">
+                    <img src="Slike\1477355862_Google_.png" class="col-xs-8" style="float: none;">
+                    <br><br>
+                    <p id="contentText" style="float: none;"> <span class="titlePDS" style="margin: 0;">PDS</span>  &copy; 2016 Karlo Vidakovic</p>
+                </div>
+                <div class="container">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container">
+
+    </div>
+
+</body>
+</html>
